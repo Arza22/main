@@ -1,39 +1,114 @@
-<!DOCTYPE html>
 <html>
- 
-<head>
-  <meta charset="utf-8">
-  <title>Arza22</title>
-  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  <style>
-    #container {
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
+<style>
+    body {
         padding: 30px;
-        background-color: #EEEEEE;
-    }
-    #container h1 {
-        font-size: 40px;
-        font-family: sans-serif;
-		color: #0080a8;
+        background-color: #000000;
+		background-attachment: fixed;
+        font-family: enter sansman;
+		color: #FFFFFF;
+		:opacity: 0.7;
 	    text-align: center;
     }
+	h1 {
+        font-size: 50px;
+		color: #FFFFFF;
+	}
+	h2 {
+        font-size: 35px;
+		color: #FFFFFF;
+	}
+	li {
+        font-family: bahnschrift;
+        font-size: 22px;
+		color: #FFFFFF;
+	}
+	a {
+        font-size: 20px;
+		color: #8888DD;
+		text-decoration: none;
+	}
+	#linkit {
+        padding: 10px;
+		color: #FFFFFF;
+	}
+	#link_button {
+		width: 250;
+		height: 30;
+		text-align: center;
+        font-size: 20px;
+		color: #AAAAAA;
+	}
 </style>
-</head>
- 
-<body>
-	<div id="container">Render error</div>
-	<script type="text/babel">
-		var destination = document.querySelector("#container");
-		//var content = "<h1>Hello, world!!!</h1>";
-		ReactDOM.render(
-			<h1>Arza22</h1>,
-			/*document.getElementById('root')*/
-			//document.body
-			destination
-		);
+<body background="bg.jpg" onload="loadPage('wheeliebike');">
+<title>Arza22</title>
 
-    </script>
+<table id="linkit" align="center" border=0>
+	<tr>
+		<h1>PORTFOLIO</h1>
+	</tr>
+
+	<tr>
+		<td id="link_button">
+			<span onclick="loadPage('wheeliebike')" 
+			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22';" 
+			onMouseOut="this.style.color = '#AAAAAA';">Wheelie Bike</span>
+		</td>
+		<td id="link_button">
+			<span onclick="loadPage('wheelieracing')" 
+			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22'; oranssiLinnunlahti();" 
+			onMouseOut="this.style.color = '#AAAAAA';">Wheelie Racing</span>
+		</td>
+		<td id="link_button">
+			<span onclick="loadPage('blender')" 
+			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22'; oranssiKitee();" 
+			onMouseOut="this.style.color = '#AAAAAA';">3D-mallinnus</span>
+		</td>
+	</tr>
+</table>
+
+<script language="JavaScript">
+
+function loadPage(page) {
+	//alert(page);
+	//alert(document.getElementById('content').innerHTML);
+	includeHTML(page);
+}
+
+function includeHTML(page) {
+	var elmnt, file, xhttp;
+	elmnt = document.getElementById('content');
+	file = page + ".htm";
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+}
+</script>
+
+<div>
+<div id="content"></div> 
+	
+</div>
+
+
+
+
+
+
+
+
+
+
 </body>
- 
-</html>
+</html> 
