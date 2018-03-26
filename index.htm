@@ -2,7 +2,7 @@
 <script src="http://www.w3schools.com/lib/w3data.js"></script>
 <style>
     body {
-        padding: 30px;
+        padding: 20px;
         background-color: #000000;
 		background-attachment: fixed;
         font-family: malgun gothic;
@@ -16,6 +16,7 @@
 	h1 {
         font-size: 50px;
 		color: #FFFFFF;
+		:opacity: 0.2;
 	    text-align: center;
 	}
 	h2 {
@@ -33,17 +34,23 @@
 		text-decoration: none;
 	}
 	#linkit {
-        padding: 10px;
+        :padding: 10px;
 	}
-	#link_button {
+	.link_button {
 		width: 250;
 		height: 30;
 		text-align: center;
         font-size: 20px;
 		color: #AAAAAA;
 	}
+    #page-content {
+        padding-top: 15px;
+    }
+    #image-content {
+        padding-top: 5px;
+    }
 </style>
-<body background="bg6.jpg" onload="loadPage('wheeliebike');">
+<body background="bg6.jpg" onload="loadPage('home');">
 <title>Ari Paloniitty - Portfolio</title>
 
 <table id="linkit" align="center" border=0>
@@ -52,22 +59,27 @@
 	</tr>
 
 	<tr>
-		<td id="link_button">
+		<td class="link_button">
+			<span onclick="loadPage('home')" 
+			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22';" 
+			onMouseOut="this.style.color = '#AAAAAA';"><p id="nav1">Etusivu</p></span>
+		</td>
+		<td id="nav2" class="link_button">
 			<span onclick="loadPage('wheeliebike')" 
 			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22';" 
 			onMouseOut="this.style.color = '#AAAAAA';">Wheelie Bike</span>
 		</td>
-		<td id="link_button">
+		<td id="nav3" class="link_button">
 			<span onclick="loadPage('wheelieracing')" 
 			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22'; oranssiLinnunlahti();" 
 			onMouseOut="this.style.color = '#AAAAAA';">Wheelie Racing</span>
 		</td>
-		<td id="link_button">
+		<td id="nav4" class="link_button">
 			<span onclick="loadPage('blender')" 
 			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22'; oranssiKitee();" 
 			onMouseOut="this.style.color = '#AAAAAA';">3D-mallinnus</span>
 		</td>
-		<td id="link_button">
+		<td id="nav5" class="link_button">
 			<span onclick="loadPage('photos')" 
 			onMouseOver="this.style.cursor='pointer'; this.style.color = '#FFCC22'; oranssiKitee();" 
 			onMouseOut="this.style.color = '#AAAAAA';">Valokuvaus</span>
@@ -80,7 +92,14 @@
 function loadPage(page) {
 	//alert(page);
 	//alert(document.getElementById('content').innerHTML);
+	setLinkColor();
 	includeHTML(page);
+}
+
+function setLinkColor() {
+	//alert(document.getElementById('nav1').innerHTML);
+	document.getElementById('nav1').color = '#FFCC22';
+	//alert("jee");
 }
 
 function includeHTML(page) {
